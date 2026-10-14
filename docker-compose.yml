@@ -1,0 +1,11 @@
+services:
+  recommender:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data:ro
+    environment:
+      BOOKS_CSV: /app/data/sample_books.csv
+      RATINGS_CSV: /app/data/sample_ratings.csv
